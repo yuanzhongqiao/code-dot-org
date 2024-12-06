@@ -1,66 +1,60 @@
-# Code.org
-
-Welcome! You've found the source code for [the Code.org website](https://code.org/) and [the Code Studio platform](https://studio.code.org/). Code.org is a non-profit dedicated to expanding access to computer science education. You can read more about our efforts at [code.org/about](https://code.org/about).
-
-## Quick start
-
-1. Follow our [setup guide](./SETUP.md) to configure your workstation.
-2. `rake build` to build the application if you have not done so already
-3. `bin/dashboard-server` to launch the development server.
-4. Open your browser to [http://localhost-studio.code.org:3000/](http://localhost-studio.code.org:3000/).
-
-To see a list of all build commands, run `rake` from the repository root.
-
-## How to help
-
-Wondering where to start?  See our [contribution guidelines](CONTRIBUTING.md).
-
-## What's in this repo?
-Here's a quick overview of the major landmarks:
-
-### Documentation
-
-* [SETUP](./SETUP.md): Instructions to get everything up and running.
-* [TESTING](./TESTING.md): How to be sure nothing broke.
-* [STYLEGUIDE](./STYLEGUIDE.md): Our code style conventions.
-* Our [LICENSE](./LICENSE) and [NOTICE](./NOTICE).
-* There are many more topical guides in the [docs](./docs) folder.
-* In addition, several sections of the repository have their own documentation:
-  * [apps/README](./apps/README.md)
-  * [blockly/README](https://github.com/code-dot-org/blockly/blob/master/README.md)
-
-### [dashboard](./dashboard)
-
-The server for our [**Code Studio** learning platform](https://studio.code.org/), a [Ruby on Rails](http://rubyonrails.org/) application responsible for:
-
-* Our courses, tutorials, and puzzle configurations
-* User accounts
-* Student progress and projects
-* The "levelbuilder" content creation tools
-
-### [pegasus](./pegasus)
-
-The server for [the **Code.org** website](https://code.org/), a [Sinatra](http://www.sinatrarb.com/) application responsible for:
-
-* [code.org](https://code.org)
-* [hourofcode.com](https://hourofcode.com)
-* [csedweek.org](https://csedweek.org)
-
-### [apps](./apps)
-
-The JavaScript 'engine' for all of our tutorials, puzzle types and online tools.  It gets built into a static package that we serve through dashboard. Though there are currently some exceptions, the goal is that all JS code ultimately lives here, so that it gets the benefit of linting/JSX/ES6/etc.
-Start here if you are looking for:
-* The Hour of Code tutorials: [Star Wars](https://code.org/starwars), [Minecraft](https://code.org/api/hour/begin/mc), [Frozen](https://studio.code.org/s/frozen) and [Classic Maze](http://studio.code.org/hoc/1)
-* Tools like [Artist](https://studio.code.org/projects/artist), [Play Lab](https://studio.code.org/projects/playlab) and [App Lab](https://code.org/educate/applab)
-* Other core puzzle types: Maze, Farmer, Bee, Bounce, Calc, Eval
-* Other JS code consumed by dashboard and pegasus.
-
-### Everything else
-
-* **aws**: Configuration and scripts that manage our deployments.
-* **bin**: Developer utilities.
-* **cookbooks**: Configuration management through [Chef](https://www.chef.io/).
-* **shared**: Source and assets used by many parts of our application.
-* **tools**: Git commit hooks.
-
-
+<div class="Box-sc-g0xbh4-0 QkQOb js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto" _msttexthash="104377" _msthash="881">Code.org</h1><a id="user-content-codeorg" class="anchor" aria-label="永久链接：Code.org" href="#codeorg" _mstaria-label="348972" _msthash="882"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="1181036779" _msthash="883">欢迎！您已经找到了 <a href="https://code.org/" rel="nofollow" _istranslated="1">Code.org 网站</a>和 <a href="https://studio.code.org/" rel="nofollow" _istranslated="1">Code Studio 平台</a>的源代码。Code.org 是一个致力于扩大计算机科学教育机会的非营利组织。您可以阅读更多关于我们在 <a href="https://code.org/about" rel="nofollow" _istranslated="1">code.org/about</a> 所做的努力。</p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="11905335" _msthash="884">快速开始</h2><a id="user-content-quick-start" class="anchor" aria-label="永久链接： 快速入门" href="#quick-start" _mstaria-label="446966" _msthash="885"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li _msttexthash="87792367" _msthash="886">按照我们的<a href="/code-dot-org/code-dot-org/blob/staging-next/SETUP.md" _istranslated="1">设置指南</a>配置您的工作站。</li>
+<li><code>rake build</code><font _mstmutation="1" _msttexthash="105070485" _msthash="887">构建应用程序（如果尚未执行此操作）</font></li>
+<li><code>bin/dashboard-server</code><font _mstmutation="1" _msttexthash="26897585" _msthash="888">以启动开发服务器。</font></li>
+<li _msttexthash="28481557" _msthash="889">打开浏览器以 <a href="http://localhost-studio.code.org:3000/" rel="nofollow" _istranslated="1">http://localhost-studio.code.org:3000/</a>。</li>
+</ol>
+<p dir="auto"><font _mstmutation="1" _msttexthash="162740292" _msthash="890">要查看所有生成命令的列表，请从存储库根目录运行。</font><code>rake</code></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="16585010" _msthash="891">如何提供帮助</h2><a id="user-content-how-to-help" class="anchor" aria-label="永久链接：如何提供帮助" href="#how-to-help" _mstaria-label="408486" _msthash="892"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="121418167" _msthash="893">想知道从哪里开始？请参阅我们的<a href="/code-dot-org/code-dot-org/blob/staging-next/CONTRIBUTING.md" _istranslated="1">贡献指南</a>。</p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto" _msttexthash="37263590" _msthash="894">此存储库中有什么？</h2><a id="user-content-whats-in-this-repo" class="anchor" aria-label="永久链接：这个仓库里有什么？" href="#whats-in-this-repo" _mstaria-label="705913" _msthash="895"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="71302647" _msthash="896">以下是主要地标的快速概述：</p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="5144373" _msthash="897">文档</h3><a id="user-content-documentation" class="anchor" aria-label="永久链接： 文档" href="#documentation" _mstaria-label="559767" _msthash="898"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li _msttexthash="84019403" _msthash="899"><a href="/code-dot-org/code-dot-org/blob/staging-next/SETUP.md" _istranslated="1">设置</a>：启动和运行所有内容的说明。</li>
+<li _msttexthash="51368967" _msthash="900"><a href="/code-dot-org/code-dot-org/blob/staging-next/TESTING.md" _istranslated="1">测试</a>：如何确保没有损坏。</li>
+<li _msttexthash="85944794" _msthash="901"><a href="/code-dot-org/code-dot-org/blob/staging-next/STYLEGUIDE.md" _istranslated="1">STYLEGUIDE：</a>我们的代码样式约定。</li>
+<li _msttexthash="33251582" _msthash="902">我们的<a href="/code-dot-org/code-dot-org/blob/staging-next/LICENSE" _istranslated="1">许可</a>和<a href="/code-dot-org/code-dot-org/blob/staging-next/NOTICE" _istranslated="1">通知</a>。</li>
+<li _msttexthash="70049733" _msthash="903"><a href="/code-dot-org/code-dot-org/blob/staging-next/docs" _istranslated="1">docs</a> 文件夹中还有更多主题指南。</li>
+<li><font _mstmutation="1" _msttexthash="123906445" _msthash="904">此外，存储库的几个部分都有自己的文档：</font><ul dir="auto">
+<li><a href="/code-dot-org/code-dot-org/blob/staging-next/apps/README.md" _msttexthash="20142902" _msthash="905">apps/自述文件</a></li>
+<li><a href="https://github.com/code-dot-org/blockly/blob/master/README.md" _msttexthash="24730940" _msthash="906">blockly/自述文件</a></li>
+</ul>
+</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><a href="/code-dot-org/code-dot-org/blob/staging-next/dashboard" _msttexthash="8308430" _msthash="907">挡泥板</a></h3><a id="user-content-dashboard" class="anchor" aria-label="永久链接：dashboard" href="#dashboard" _mstaria-label="402519" _msthash="908"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="292900400" _msthash="909">我们的 <a href="https://studio.code.org/" rel="nofollow" _istranslated="1"><strong _istranslated="1">Code Studio</strong> 学习平台</a>的服务器，一个 <a href="http://rubyonrails.org/" rel="nofollow" _istranslated="1">Ruby on Rails</a> 应用程序，负责：</p>
+<ul dir="auto">
+<li _msttexthash="60224957" _msthash="910">我们的课程、教程和拼图配置</li>
+<li _msttexthash="11430094" _msthash="911">用户帐户</li>
+<li _msttexthash="27035723" _msthash="912">学生进度和项目</li>
+<li _msttexthash="44254314" _msthash="913">“levelbuilder” 内容创建工具</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><a href="/code-dot-org/code-dot-org/blob/staging-next/pegasus" _msttexthash="10507549" _msthash="914">飞马座</a></h3><a id="user-content-pegasus" class="anchor" aria-label="永久链接： pegasus" href="#pegasus" _mstaria-label="344994" _msthash="915"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="209220843" _msthash="916"><a href="https://code.org/" rel="nofollow" _istranslated="1"><strong _istranslated="1">Code.org</strong> 网站的</a>服务器，一个 <a href="http://www.sinatrarb.com/" rel="nofollow" _istranslated="1">Sinatra</a> 应用程序，负责：</p>
+<ul dir="auto">
+<li><a href="https://code.org" rel="nofollow" _msttexthash="107289" _msthash="917">code.org</a></li>
+<li><a href="https://hourofcode.com" rel="nofollow" _msttexthash="247832" _msthash="918">hourofcode.com</a></li>
+<li><a href="https://csedweek.org" rel="nofollow" _msttexthash="196456" _msthash="919">csedweek.org</a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><a href="/code-dot-org/code-dot-org/blob/staging-next/apps" _msttexthash="12124801" _msthash="920">应用程序</a></h3><a id="user-content-apps" class="anchor" aria-label="永久链接：应用" href="#apps" _mstaria-label="251914" _msthash="921"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto" _msttexthash="2278043313" _msthash="922">我们所有教程、谜题类型和在线工具的 JavaScript“引擎”。它被内置到我们通过 dashboard 提供的静态包中。虽然目前有一些例外，但目标是所有 JS 代码最终都位于此处，以便它获得 linting/JSX/ES6/etc 的好处。
+如果您正在寻找，请从这里开始：</p>
+<ul dir="auto">
+<li _msttexthash="189470398" _msthash="923">编程一小时教程：<a href="https://code.org/starwars" rel="nofollow" _istranslated="1">星球大战</a>、<a href="https://code.org/api/hour/begin/mc" rel="nofollow" _istranslated="1">我的世界</a>、<a href="https://studio.code.org/s/frozen" rel="nofollow" _istranslated="1">冰雪奇缘</a>和<a href="http://studio.code.org/hoc/1" rel="nofollow" _istranslated="1">经典迷宫</a></li>
+<li _msttexthash="37077456" _msthash="924"><a href="https://studio.code.org/projects/artist" rel="nofollow" _istranslated="1">Artist</a>、<a href="https://studio.code.org/projects/playlab" rel="nofollow" _istranslated="1">Play Lab</a> 和 <a href="https://code.org/educate/applab" rel="nofollow" _istranslated="1">App Lab</a> 等工具</li>
+<li _msttexthash="70207631" _msthash="925">其他核心谜题类型：Maze、Farmer、Bee、Bounce、Calc、Eval</li>
+<li _msttexthash="72103408" _msthash="926">dashboard 和 pegasus 使用的其他 JS 代码。</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto" _msttexthash="4000984" _msthash="927">一切</h3><a id="user-content-everything-else" class="anchor" aria-label="永久链接：其他所有内容" href="#everything-else" _mstaria-label="602290" _msthash="928"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li _msttexthash="74203987" _msthash="929"><strong _istranslated="1">aws</strong>：管理部署的配置和脚本。</li>
+<li _msttexthash="49099947" _msthash="930"><strong _istranslated="1">bin</strong>：开发人员实用程序。</li>
+<li _msttexthash="102155443" _msthash="931"><strong _istranslated="1">cookbooks</strong>：通过 <a href="https://www.chef.io/" rel="nofollow" _istranslated="1">Chef</a> 进行配置管理。</li>
+<li _msttexthash="142309167" _msthash="932"><strong _istranslated="1">shared</strong>：应用程序的许多部分使用的源和资源。</li>
+<li _msttexthash="37945635" _msthash="933"><strong _istranslated="1">tools</strong>：Git 提交钩子。</li>
+</ul>
+</article></div>
